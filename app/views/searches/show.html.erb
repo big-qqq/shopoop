@@ -1,0 +1,57 @@
+<style>
+.scale {
+display: inline-block; /* Строчно-блочный элемент */
+overflow: hidden; /* Скрываем всё за контуром */
+}
+.scale img {
+transition: 1s; /* Время эффекта */
+display: block; /* Убираем небольшой отступ снизу */
+}
+.scale img:hover {
+transform: scale(1.2); /* Увеличиваем масштаб */
+}
+</style>
+
+<div class="category_position ">
+
+
+
+
+<% for category in Category.all%>
+
+
+<strong>&emsp;<%=link_to category.name,category,class:"text-dark"%></strong><br>
+<br>
+
+
+<%end%>
+</div>
+
+
+<div class="container">
+
+
+<% @search.search_products.each do |product| %>
+
+
+<div class="probel2 text-center outline">
+<%= image_tag product.image_url, size: '230x230'%>
+
+
+<p class="card-text text-dark "><%=link_to product.name,product_path(product),class:"text-dark"%></p>
+
+<%=product.cost%> руб.
+
+<%=link_to "В корзину ",new_product_wain_path(product),class:" btn btn_index2 text_btn2 text-center"%>
+
+</div>
+
+
+<%end%>
+
+
+
+</div>
+
+
+</footer>

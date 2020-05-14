@@ -1,0 +1,50 @@
+<style>
+   .outline {
+    border: 1px solid black;
+    padding: 0 10px;
+   }
+  </style>
+
+
+
+<div class="container_index_users   ">
+
+ <a>User : <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#6f42c1"/><text x="50%" y="50%" fill="#6f42c1" dy=".3em">32x32</text></svg></a>
+ <a>Admin :  <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg></a>
+  
+<div class="my-3 p-3 bg-muted rounded shadow-sm outline">
+    <h6 class="border-bottom border-gray pb-2 mb-0">Все пользователи </h6>
+     <% for user  in @users%>
+    <div class="media text-muted pt-3"> 
+    <% if user.roll=="admin"%>
+     <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+    <% else %>
+     <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#6f42c1"/><text x="50%" y="50%" fill="#6f42c1" dy=".3em">32x32</text></svg>
+     <% end %>
+     
+      <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+        <strong class="d-block text-gray-dark">@<%=link_to user.username ,users_page_path(user),class: "text-dark"%></strong>
+      <%=user.created_at %>  ,  <%=user.email %>
+      </p>
+        <%= link_to  edit_users_page_path(user) do %>
+       <small class="d-block text-right mt-3">
+       <svg width="48" height="42" viewBox="0 0 48 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="cut_24px">
+<path id="icon/content/cut_24px" fill-rule="evenodd" clip-rule="evenodd" d="M19.28 13.37C19.74 12.495 20 11.5325 20 10.5C20 6.6325 16.42 3.5 12 3.5C7.58 3.5 4 6.6325 4 10.5C4 14.3675 7.58 17.5 12 17.5C13.18 17.5 14.28 17.2725 15.28 16.87L20 21L15.28 25.13C14.28 24.7275 13.18 24.5 12 24.5C7.58 24.5 4 27.6325 4 31.5C4 35.3675 7.58 38.5 12 38.5C16.42 38.5 20 35.3675 20 31.5C20 30.4675 19.74 29.505 19.28 28.63L24 24.5L38 36.75H44V35L19.28 13.37ZM12 14C9.8 14 8 12.4425 8 10.5C8 8.5575 9.8 7 12 7C14.2 7 16 8.5575 16 10.5C16 12.4425 14.2 14 12 14ZM8 31.5C8 33.4425 9.8 35 12 35C14.2 35 16 33.4425 16 31.5C16 29.5575 14.2 28 12 28C9.8 28 8 29.5575 8 31.5ZM24 21.875C23.44 21.875 23 21.49 23 21C23 20.51 23.44 20.125 24 20.125C24.56 20.125 25 20.51 25 21C25 21.49 24.56 21.875 24 21.875ZM26 15.75L38 5.25H44V7L30 19.25L26 15.75Z" fill="black" fill-opacity="0.54"/>
+</g>
+</svg>
+<%end%>
+
+  <%= link_to  users_page_path(user), method: :delete, data:{ confirm: 'Хотите удалить ?' } do %>
+<svg width="50" height="43" viewBox="0 0 50 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="delete_forever_24px">
+<path id="icon/action/delete_forever_24px" fill-rule="evenodd" clip-rule="evenodd" d="M30.2083 5.375L32.2916 7.16667H39.5833V10.75H10.4166V7.16667H17.7083L19.7916 5.375H30.2083ZM24.9999 22.5571L29.4166 18.7588L32.3541 21.285L27.9374 25.0833L32.3541 28.8817L29.4166 31.4079L24.9999 27.6096L20.5833 31.4079L17.6458 28.8817L22.0624 25.0833L17.6249 21.285L20.5624 18.7588L24.9999 22.5571ZM12.5 34.0417C12.5 36.0125 14.375 37.625 16.6666 37.625H33.3333C35.625 37.625 37.5 36.0125 37.5 34.0417V12.5417H12.5V34.0417ZM33.3333 16.125H16.6666V34.0417H33.3333V16.125Z" fill="black" fill-opacity="0.54"/>
+</g>
+</svg>
+<%end%>
+
+       </small>
+    </div>
+    <%end%>
+    </div>
+  </div>

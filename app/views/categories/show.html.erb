@@ -1,0 +1,105 @@
+<style>
+
+
+   .outline:hover {
+    background: #F9F6F1;
+    
+   }
+ .btn_index{
+
+    position: absolute;
+    left: 190px;
+    top: 350px;
+    width: 170px;
+    height: 30px;
+   background: #D7B399;
+    outline: none;
+   outline: none !important;
+   
+ }
+ .text_btn{
+font-family: Montserrat;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 20px;
+/* identical to box height */
+
+letter-spacing: 0.03em;
+ outline: none;
+color: #FFFFFF;
+
+ }
+.text_btn:hover {
+
+  color: #FFFFFF;
+}
+  
+  </style>
+
+
+
+<div class="container_search">
+
+ 
+      <div class="row">
+      
+      <% @category.products.each do |product| %>
+ 
+        <div class="col-md-3 outline probel ">
+          <div class=" mb-5  ">
+        
+  
+            <%= image_tag product.image_url, size: '230x230'%>
+           
+            
+              <p class="card-text "><h5><%=link_to product.name,product_path(product),class:"text_index_product text-dark"%></h5></p>
+              <div class="cost">
+               <%=product.cost%> руб.
+               </div>
+                <%=link_to "В корзину ",new_product_wain_path(product),class:" btn_index text_btn text-center"%>
+          </div>
+        </div>
+      
+         
+          <%end%>
+        </div>
+   </div>
+         
+ <footer>
+    <div class="row">
+      <div class="col-12 col-md">
+        <img class="mb-2" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
+        <small class="d-block mb-3 text-muted">&copy; 2017-2019</small>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Features</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Cool stuff</a></li>
+          <li><a class="text-muted" href="#">Random feature</a></li>
+          <li><a class="text-muted" href="#">Team feature</a></li>
+          <li><a class="text-muted" href="#">Stuff for developers</a></li>
+          <li><a class="text-muted" href="#">Another one</a></li>
+          <li><a class="text-muted" href="#">Last time</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Resources</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Resource</a></li>
+          <li><a class="text-muted" href="#">Resource name</a></li>
+          <li><a class="text-muted" href="#">Another resource</a></li>
+          <li><a class="text-muted" href="#">Final resource</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>About</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Team</a></li>
+          <li><a class="text-muted" href="#">Locations</a></li>
+          <li><a class="text-muted" href="#">Privacy</a></li>
+          <li><a class="text-muted" href="#">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>

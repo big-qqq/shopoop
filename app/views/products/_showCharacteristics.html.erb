@@ -1,0 +1,32 @@
+<h3 class=" font-italic ">
+  <%="Характеристики"%>
+</h3>
+
+
+<table class="table">
+ 
+  <tbody>
+  <%@product.characteristics.each  do |characteristic|%>
+    <tr>
+     
+      <td><h5><%=characteristic.name%></h5></td>
+      <td><h5><%=characteristic.about%></h5></td>
+        <% if user_signed_in? %>
+            &emsp;
+              <% if current_user.roll=="admin" %>
+      <td><%=link_to "Удалить характеристику",[characteristic.product, characteristic], method: :delete, data:{ confirm: 'Хотите удалить ?' },class:"text-dark" %> <br></td>
+   <%end%>
+      <%end%>
+    </tr>
+   
+   <% end %>
+   <% if user_signed_in? %>
+&emsp;
+<% if current_user.roll=="admin" %>
+<br><p><%=link_to "Редактировать ",edit_product_path(@product)%>
+<%= link_to "Удалить", product_path(@product), method: :delete, data:{ confirm: 'Хотите удалить ?' }%>
+</p>
+<% end %>
+<% end %>
+  </tbody>
+</table>

@@ -1,0 +1,62 @@
+
+
+<div class="container2">
+
+      <div class="text_show_product">
+      <%=@product.body%>
+
+      
+      </div>
+
+      
+
+        </div>
+        <div class="image_show">
+   <%= image_tag @product.image_url, size: '255x252',class:"scale"%>
+</div>
+<div class="name_text_show text-center">
+<%=@product.name%>
+
+</div>
+      <div class="card_show">
+
+</div>
+<br>
+<div class="charactestick_show text-center">
+
+
+
+<%= render 'showCharacteristics'%>
+<div class="btn_card">
+
+      <%=link_to "Добавить в корзину ",new_product_wain_path(@product),class:"btn btn-primary"%>
+
+      </div>
+
+    
+      
+   
+</div>
+
+</div>
+<div class="add_charact text-center">
+<% if user_signed_in? %>
+  
+              <% if current_user.roll=="admin" %>
+              <br>
+              <br>
+               <br>
+              <br> <br>
+              <br>
+    <%= render 'formCharacteristics'%>
+                 <%end%> 
+    <%end%>
+
+</div>
+
+
+ 
+
+
+
+
